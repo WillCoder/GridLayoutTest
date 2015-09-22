@@ -17,44 +17,45 @@ public class MainActivity extends Activity {
         gridLayout = (GridLayout) findViewById(R.id.gl_gridlayout);
 
 
-        createParams(1);
+        createParams(1, 1f);
 
 
-        gridLayout.addView(createTextViewRandom(), createParams(1));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
+        gridLayout.addView(createTextViewRandom("Hello Hello111"), createParams(1, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello111"), createParams(1, 1f));
+        gridLayout.addView(createTextViewRandom("Hello xxxxxxxxxxxx"), createParams(1, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(2));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
+        gridLayout.addView(createTextViewRandom("Hello Hello xxxxx"), createParams(2, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(1, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(2));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(2, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(2));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(2, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(3));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(3, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(2));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(2, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(1, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(1));
-        gridLayout.addView(createTextViewRandom(), createParams(2));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(1, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(2, 1f));
 
-        gridLayout.addView(createTextViewRandom(), createParams(1));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
-        gridLayout.addView(createTextViewRandom(), createParams(1));
+        gridLayout.addView(createTextViewRandom("Hello Hello yyyyyy"), createParams(1, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(1, 1f));
+        gridLayout.addView(createTextViewRandom("Hello Hello"), createParams(1, 1f));
     }
 
-    private GridLayout.LayoutParams createParams(int size) {
+    private GridLayout.LayoutParams createParams(int size, float weight) {
         GridLayout.LayoutParams params = new GridLayout.LayoutParams();
 
-        params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, size, 1f);
+        params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, size, weight);
         params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
         return params;
     }
 
-    private TextView createTextViewRandom() {
+    private TextView createTextViewRandom(String text) {
         TextView textView = new TextView(this);
-        textView.setText("Hello");
+        textView.setText(text);
+        textView.setWidth(0);
         return textView;
     }
 }
